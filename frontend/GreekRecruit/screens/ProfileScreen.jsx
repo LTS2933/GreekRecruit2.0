@@ -3,12 +3,18 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 const ProfileScreen = ({ navigation }) => {
     // Mock data for the profile
     const profileData = {
-        name: 'John Doe',
+        name: 'Liam Smith',
         graduationYear: '2024',
-        gpa: '3.8',
-        email: 'johndoe@example.com',
-        instagramHandle: '@johndoe',
+        gpa: '3.66',
+        email: 'liamsmith@example.com',
+        instagramHandle: '@liam.smith12',
         imageUrl: 'https://via.placeholder.com/100', // Placeholder for a profile image
+        interests: ['Coding', 'Photography', 'Hiking'], // Example interests
+        gallery: [ // Placeholder images for the gallery
+            'https://via.placeholder.com/100',
+            'https://via.placeholder.com/100',
+            'https://via.placeholder.com/100'
+        ],
     };
 
     return (
@@ -23,6 +29,14 @@ const ProfileScreen = ({ navigation }) => {
                     <Text>Instagram: {profileData.instagramHandle}</Text>
                 </View>
             </View>
+            <View style={styles.galleryContainer}>
+                {profileData.gallery.map((imageUri, index) => (
+                    <Image key={index} source={{ uri: imageUri }} style={styles.galleryImage} />
+                ))}
+            </View>
+            <Text style={styles.interestsText}>
+                Interests: {profileData.interests.join(', ')}
+            </Text>
         </View>
     );
 };
@@ -49,6 +63,19 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 24,
         fontWeight: 'bold',
+    },
+    galleryContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+    },
+    galleryImage: {
+        width: 100,
+        height: 100,
+        borderRadius: 10, // slightly rounded corners for gallery images
+    },
+    interestsText: {
+        fontSize: 18,
     },
 });
 
