@@ -80,8 +80,8 @@ function HomeTab() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginScreen">
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Navigator initialRouteName="ProfileScreen">
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen} />
         <Stack.Screen name="Home" component={HomeTab} />
       </Stack.Navigator>
