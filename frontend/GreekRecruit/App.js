@@ -8,8 +8,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import LoginScreen from './screens/LoginScreen';
 import CreateAccountScreen from './screens/CreateAccountScreen';
 import HomeScreen from './screens/HomeScreen';
-import SearchScreen from './screens/SearchScreen';
-import AddScreen from './screens/AddScreen';
 import HeartScreen from './screens/HeartScreen';
 import ProfileScreen from './screens/ProfileScreen';
 
@@ -19,8 +17,14 @@ const Tab = createBottomTabNavigator();
 function HomeTab() {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        showLabel: false,
+      screenOptions={{
+        "tabBarShowLabel": false,
+        "tabBarStyle": [
+          {
+            "display": "flex"
+          },
+          null
+        ]
       }}
     >
       <Tab.Screen
@@ -29,26 +33,6 @@ function HomeTab() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <Icon name="home" color={color} size={size} />
-          ),
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="Search"
-        component={SearchScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="search" color={color} size={size} />
-          ),
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="Add"
-        component={AddScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="add-circle-outline" color={color} size={size} />
           ),
           headerShown: false,
         }}
@@ -80,8 +64,8 @@ function HomeTab() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ProfileScreen">
-        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Navigator initialRouteName="LoginScreen">
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen} />
         <Stack.Screen name="Home" component={HomeTab} />
       </Stack.Navigator>
