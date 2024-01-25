@@ -16,7 +16,28 @@ import ProfileScreen from './screens/ProfileScreen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function HomeTab() {
+function HomeTabRecruiter(){
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        showLabel: false,
+      }}
+    >
+      <Tab.Screen
+        name="HomeScreen"
+        component={HomeTabRecruiter}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" color={color} size = {size} />
+          ), headerShown=false,
+        }}
+      />
+      <Tab.Screen
+    </Tab.Navigator>
+  )
+}
+
+function HomeTabRecruit() {
   return (
     <Tab.Navigator
       tabBarOptions={{
